@@ -1,0 +1,17 @@
+# Credenciales y Configuración
+*.env
+*.xlsm
+*.xlsx
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Resultados y Auditoría
+auditoria_micro_queries_*.csv
+reporte_final_*.csv
+query_generada_*.sql
+diagrama_relaciones_*.svg
