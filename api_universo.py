@@ -95,13 +95,6 @@ def actualizar(id_reporte: int, req: SolicitudUpdate):
     if error: raise HTTPException(status_code=500, detail=error)
     return {"estado": "EXITO", "info": res}
 
-@app.get("/api/v1/reporte/{id_reporte}/derivado/kpis")
-def obtener_kpis(id_reporte: int, usuario: str):
-    # Endpoint súper ligero. Lee disco, no toca el motor.
-    path_cache = f"datos_olap_rep{id_reporte}_{usuario}.parquet"
-    if not os.path.exists(path_cache): raise HTTPException(status_code=404)
-    df = pd.read_parquet(path_cache)
-    return {"filas": len(df)}
 
 if __name__ == "__main__":
     import uvicorn
